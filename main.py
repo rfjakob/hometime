@@ -168,6 +168,17 @@ def bar(np, upto, clockin, clockout, event):
         np[i] = colourbar
         
 
+    ################ HACK JAKOB START #####################
+    # Only show a single dot for the time
+    for i in range(barupto):
+        np[i] = (0, 0, 0)
+
+    if barupto <= 0:
+        barupto = 1
+
+    np[barupto-1] = colourbar
+    ################ HACK JAKOB END #####################
+
 def eventnow(hoursin, googletimes):
     # This returns whether you're currently in a meeting and will be used to change the colour of the bar
     event = False
